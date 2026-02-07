@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HalsRick — Dashboard Visionário</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="manifest" href="../manifest.json">
+</head>
+<body class="page--dashboard" style="background: #000; color: #fff; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; font-family: sans-serif;">
+
+    <div class="dashboard-container" style="max-width: 500px; width: 90%; padding: 2.5rem; background: var(--color-dark-gray); border: 1px solid #D4AF37; border-radius: var(--radius-lg); text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);">
+        
+        <div style="margin-bottom: 2rem;">
+            <h2 class="text-gradient-gold" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Bem-vindo, Visionário</h2>
+            <div style="height: 1px; background: #D4AF37; width: 60px; margin: 0 auto;"></div>
+        </div>
+
+        <div id="install-section" style="display: none; margin-bottom: 2rem;">
+            <p style="color: var(--gray-light); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                Instale o aplicativo oficial HalsRick para acesso instantâneo.
+            </p>
+            <button id="btnInstall" class="button" style="width: 100%; height: 55px; border: none; cursor: pointer; font-weight: bold; background: #D4AF37; color: #000; border-radius: var(--radius-md); display: none; margin-bottom: 10px;">
+                INSTALAR HALSRICK APP
+            </button>
+        </div>
+
+      <div id="actions-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+    
+    <button id="btnInstall" class="button" style="display: none; width: 100%; height: 55px; border: none; cursor: pointer; font-weight: bold; background: #D4AF37; color: #000; border-radius: var(--radius-md);">
+        INSTALAR HALSRICK APP (RECOMENDADO)
+    </button>
+
+    <a href="app.html" style="text-decoration: none; display: block; width: 100%; padding: 15px; border: 1px solid rgba(212, 175, 55, 0.3); color: #D4AF37; font-weight: bold; border-radius: var(--radius-md); text-align: center; box-sizing: border-box;">
+        APENAS ACESSAR NO NAVEGADOR →
+    </a>
+</div>
+        <div id="pc-qr-section" style="display: none;">
+            <p style="color: var(--gray-light); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                Acesse no celular escaneando o QR Code abaixo para uma experiência completa.
+            </p>
+            <div style="background: #fff; padding: 15px; display: inline-block; border-radius: 10px; border: 3px solid #D4AF37;">
+                <img id="qrCode" src="" alt="Escaneie para instalar" style="width: 180px; height: 180px; display: block;">
+            </div>
+        </div>
+
+        <p style="margin-top: 2.5rem; font-size: 0.75rem; color: #444; letter-spacing: 1px;">
+            HALSRICK — WEALTH & MANAGEMENT © 2026
+        </p>
+    </div>
+
+    <script>
+        // Registra o Service Worker (agora na raiz)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('../sw.js')
+            .then(() => console.log("SW registrado!"))
+            .catch(err => console.log("Erro no SW:", err));
+        }
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const installSection = document.getElementById('install-section');
+        const pcSection = document.getElementById('pc-qr-section');
+        const qrImg = document.getElementById('qrCode');
+        const btnInstall = document.getElementById('btnInstall');
+
+        // Sempre tenta mostrar a seção de instalação
+        installSection.style.display = 'block';
+
+        if (!isMobile) {
+            pcSection.style.display = 'block';
+            const currentURL = window.location.origin;
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${currentURL}`;
+        }
+
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log("Navegador pronto para instalar!");
+            e.preventDefault();
+            deferredPrompt = e;
+            btnInstall.style.display = 'block'; 
+        });
+
+        btnInstall.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('HalsRick instalado!');
+                }
+                deferredPrompt = null;
+            } else {
+                alert("Para instalar, procure o ícone de 'Instalar App' na barra de endereços ou no menu do navegador.");
+            }
+        });
+    </script>
+</body>
+</html>
