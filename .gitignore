@@ -1,0 +1,15 @@
+# nega tudo por padrão
+*
+
+# permite pastas e o próprio gitignore
+!*/
+!.gitignore
+
+# permite HTML
+!*.html
+!pages/
+!pages/**
+
+# permite CSS
+!assets/css/
+!assets/css/**
