@@ -1,0 +1,63 @@
+ZAQUION OS — Proprietary Evaluation License
+Version 1.0
+
+Copyright (c) 2026 Paulo Henrique ("Licensor")
+All rights reserved.
+
+IMPORTANT: This is a proprietary license. You are not permitted to use, copy, modify, distribute, or sublicense this software except as expressly allowed below.
+
+1) Definitions
+- "Software" means the ZAQUION OS source code, binaries, documentation, assets, and any associated materials in this repository.
+- "You" means any individual or legal entity that accesses or uses the Software.
+- "Permitted Purpose" means non-commercial evaluation and review of the Software for learning, technical assessment, and due diligence.
+
+2) License Grant (Evaluation Only)
+Subject to full compliance with this License, Licensor grants You a limited, non-exclusive, non-transferable, revocable license to:
+a) view the source code and documentation;
+b) download the Software solely for the Permitted Purpose;
+c) run the Software locally for evaluation, testing, and review.
+
+3) Restrictions (What You May NOT Do)
+Unless You have prior written permission from Licensor, You may NOT:
+a) use the Software for commercial purposes, production use, or to provide a service to third parties;
+b) copy, reproduce, redistribute, publish, or share the Software (in whole or in part) in any form;
+c) modify, adapt, translate, or create derivative works based on the Software;
+d) remove or alter copyright, licensing, or attribution notices;
+e) reverse engineer the Software except to the extent prohibited by applicable law;
+f) use the Software or any portion of it to build, train, or improve any competing product or service.
+
+4) Ownership
+The Software is licensed, not sold. Licensor retains all right, title, and interest in and to the Software, including all intellectual property rights.
+
+5) Team & Credits (Attribution)
+ZAQUION OS is built with shared vision and collaboration:
+- Paulo Henrique — Co-founder & CTO (Tech Lead) — architecture, development, performance, automation, and code ownership
+- Pablo — Founder (Vision & Finance) — original idea, planning, and financial strategy
+- Gregory — Co-founder (Marketing & Growth) — branding, positioning, marketing, and growth strategy
+
+This section does not grant any ownership rights to the Software.
+
+6) Feedback
+If You provide feedback, ideas, or suggestions regarding the Software, You grant Licensor a perpetual, worldwide, royalty-free right to use that feedback without restriction or obligation.
+
+7) Contributions
+If Licensor accepts Your contribution (e.g., via pull request), You agree that:
+a) You have the right to submit the contribution; and
+b) You grant Licensor a perpetual, worldwide, irrevocable, royalty-free license to use, modify, relicense, and distribute the contribution as part of the Software.
+
+8) Third-Party Components
+The Software may include or depend on third-party components governed by their own licenses. You are responsible for complying with those licenses.
+
+9) Disclaimer of Warranty
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+10) Limitation of Liability
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR BUSINESS INTERRUPTION, ARISING OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THIS LICENSE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+11) Termination
+This License is effective until terminated. Licensor may terminate this License immediately if You breach any term. Upon termination, You must stop using the Software and delete all copies in Your possession or control.
+
+12) Contact
+For commercial licensing, permissions, or partnership inquiries, contact:
+Email: ph3073610@gmail.com
+LinkedIn: https://www.linkedin.com/in/paulo-henrique-dev-fullstack/
