@@ -1,0 +1,289 @@
+/* =====================================================
+   LOGIN PREMIUM — HALSRICK ENGINE
+   ===================================================== */
+
+:root {
+  --bg-dark: #050505;
+  --bg-card: rgba(20, 20, 20, 0.6); /* Transparência para o vidro */
+  --gold-primary: #FFBD2B;
+  --gold-dark: #D4AF37;
+  --gold-glow: rgba(255, 189, 43, 0.3);
+  --text-main: #F8F8F8;
+  --text-muted: #888;
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Fundo da Página com "Spotlight" */
+.page--login {
+  background-color: var(--bg-dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  
+  /* Efeito de luz sutil no topo */
+  background-image: radial-gradient(circle at 50% -20%, #1a1a1a, #000);
+  padding: 20px;
+}
+
+/* =========================
+   CONTAINER (GLASS CARD)
+========================= */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 3rem 2.5rem;
+  
+  /* O Segredo do Vidro Apple */
+  background: var(--bg-card);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  text-align: center;
+  
+  /* Sombra de profundidade */
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+
+  /* Animação de Entrada Suave */
+  animation: floatUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes floatUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   HEADER
+========================= */
+.login-header {
+  margin-bottom: 2.5rem;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+  
+  /* Gradiente no Texto (Ouro) */
+  background: linear-gradient(135deg, #fff 30%, var(--gold-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* =========================
+   FORMULÁRIO & INPUTS
+========================= */
+.login-form {
+  text-align: left;
+}
+
+.login-field {
+  margin-bottom: 1.5rem;
+}
+
+.login-field label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ccc;
+  margin-left: 4px; /* Alinha com a curva do input */
+}
+
+.login-field input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px; /* Bordas mais arredondadas estilo iOS */
+  
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-field input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estado de Foco (Glow Dourado) */
+.login-field input:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 4px rgba(255, 189, 43, 0.15);
+}
+
+/* =========================
+   BOTÃO "ENTRAR" (CORRIGIDO)
+========================= */
+.login-button {
+  position: relative; /* ESSENCIAL: Segura o spinner dentro do botão */
+  width: 100%;
+  padding: 1.1rem;
+  margin-top: 1rem;
+  
+  /* Gradiente Rico */
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+  color: #000;
+  
+  border: none;
+  border-radius: 14px;
+  
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  
+  /* Sombra brilhante */
+  box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(212, 175, 55, 0.5);
+  filter: brightness(1.1);
+}
+
+.login-button:active {
+  transform: scale(0.98);
+}
+
+/* --- ESTADO DE CARREGAMENTO (LOADING) --- */
+
+/* 1. Esconde o texto "Entrar no Sistema" */
+.login-button.is-loading {
+  color: transparent !important; /* Força o texto a sumir */
+  pointer-events: none; /* Bloqueia cliques extras */
+}
+
+/* 2. Cria a bolinha giratória NO CENTRO */
+.login-button.is-loading::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  
+  /* Tamanho e Espessura */
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(0, 0, 0, 0.2); /* Trilha suave */
+  border-top-color: #000; /* Cor do spinner (Preto forte) */
+  border-radius: 50%;
+  
+  /* Centralização Exata */
+  margin-left: -12px; /* Metade da largura */
+  margin-top: -12px;  /* Metade da altura */
+  
+  animation: spin 0.6s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* =========================
+   LINKS & MENSAGENS
+========================= */
+.login-forgot {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.login-forgot:hover {
+  color: var(--gold-primary);
+  text-decoration: underline;
+}
+
+.login-message {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  min-height: 20px;
+  font-weight: 500;
+  color: var(--gold-primary); /* Padrão dourado para alertas */
+}
+
+/* =========================
+   MODAL DE RECUPERAÇÃO
+========================= */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px); /* Desfoque pesado no fundo */
+  z-index: 1000;
+  
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  
+  opacity: 0; 
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.is-active {
+  opacity: 1; pointer-events: all;
+}
+
+.modal {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%; max-width: 400px;
+  text-align: center;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+.modal-overlay.is-active .modal {
+  transform: scale(1);
+}
+
+.modal h2 { color: #fff; margin-bottom: 10px; }
+.modal p { color: #888; margin-bottom: 25px; font-size: 0.9rem; }
+
+.modal-cancel {
+  margin-top: 15px;
+  background: none; border: none;
+  color: #666; cursor: pointer;
+  transition: 0.2s;
+}
+.modal-cancel:hover { color: #fff; }
+
+/* Botão secundário do modal */
+.button--primary {
+  width: 100%;
+  padding: 12px;
+  background: var(--gold-primary);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}

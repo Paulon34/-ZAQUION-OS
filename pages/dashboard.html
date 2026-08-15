@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Instale ou acesse o HalsRick Wealth OS.">
+  <title>HalsRick — Seu acesso</title>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../assets/css/pages/dashboard.css">
+</head>
+<body>
+  <main class="install-shell">
+    <section class="install-card" aria-labelledby="install-title">
+      <a class="brand" href="../index.html" aria-label="Voltar para o início">HalsRick</a>
+      <span class="eyebrow">Acesso autorizado</span>
+      <h1 id="install-title">Sua central financeira está pronta.</h1>
+      <p class="lead">Acesse agora pelo navegador ou instale o aplicativo para uma experiência mais rápida e integrada.</p>
+
+      <div class="actions">
+        <button id="btnInstall" class="button button--primary" type="button" hidden>
+          Instalar aplicativo
+        </button>
+        <a class="button button--secondary" href="app.html">Acessar no navegador <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div id="installHelp" class="install-help" role="status" aria-live="polite"></div>
+
+      <div id="pcQrSection" class="qr-panel" hidden>
+        <img id="qrCode" src="" alt="QR Code para abrir o HalsRick no celular" width="156" height="156">
+        <div>
+          <strong>Continue no celular</strong>
+          <p>Escaneie o código para abrir esta página no seu dispositivo.</p>
+        </div>
+      </div>
+
+      <footer>HalsRick Wealth OS <span aria-hidden="true">·</span> 2026</footer>
+    </section>
+  </main>
+
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
